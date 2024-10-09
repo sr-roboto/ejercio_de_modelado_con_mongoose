@@ -1,4 +1,4 @@
-import { Model, Schema } from 'mongoose';
+import { model, Schema } from 'mongoose';
 
 const employeSchema = new Schema({
   username: {
@@ -13,16 +13,14 @@ const employeSchema = new Schema({
     type: String,
     required: true,
   },
-  serial_number: {
-    type: String,
-    required: true,
-  },
-  sales: {
-    type: Schema.Types.ObjectId,
-    ref: 'Sale',
-  },
+  sales: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Sale',
+    },
+  ],
 });
 
-const Employe = Model('Employe', employeSchema);
+const Employe = model('Employe', employeSchema);
 
 export { Employe };
