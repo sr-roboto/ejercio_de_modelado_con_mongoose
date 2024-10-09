@@ -1,24 +1,28 @@
 import { Model, Schema } from 'mongoose';
 
-const empladoSchema = new Schema({
-  nombre: {
+const employeSchema = new Schema({
+  username: {
     type: String,
     required: true,
   },
-  correo: {
+  email: {
     type: String,
     required: true,
   },
-  contraenia: {
+  password: {
     type: String,
     required: true,
   },
-  ventas: {
-    type: Schema.ObjectId,
-    ref: 'Venta',
+  serial_number: {
+    type: String,
+    required: true,
+  },
+  sales: {
+    type: Schema.Types.ObjectId,
+    ref: 'Sale',
   },
 });
 
-const Empleado = Model('Empleado', empladoSchema);
+const Employe = Model('Employe', employeSchema);
 
-export { Empleado };
+export { Employe };
